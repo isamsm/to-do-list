@@ -1,34 +1,5 @@
 var initialCol = document.querySelector('#initial-col')
 
-function dragStart(e) {
-    e.dataTransfer.setData('text/plain', e.target.innerHTML)
-
-    setTimeout(() => {
-        e.target.classList.add('invisible')
-    }, 0)
-}
-
-function dragEnd(e) {
-    e.target.classList.remove('invisible')
-}
-
-function dragOver(e) {
-    e.preventDefault()
-}
-
-function dropEvent(e) {
-    e.preventDefault()
-
-    const text = e.dataTransfer.getData('text/plain')
-    const el = document.createElement('li')
-    el.innerHTML = text
-    el.draggable = true
-    el.classList.add('items')
-    addDragAndDropEvents(el)
-    this.appendChild(el)
-    e.dataTransfer.clearData();
-}
-
 function addTask() {
     const input = document.getElementById('new-task')
 
@@ -46,9 +17,38 @@ function addTask() {
     }
 }
 
+function dragStart(e) {
+    e.dataTransfer.setData('text/plain', e.target.innerHTML)
+
+    setTimeout(() => {
+        e.target.classList.add('invisible')
+    }, 0)
+}
+
+function dragEnd(e) {
+    e.target.classList.remove('invisible')
+}
+
 function addDragAndDropEvents(element) {
     element.addEventListener('dragstart', dragStart)     
     element.addEventListener('dragend', dragEnd)  
+}
+
+function dragOver(e) {
+    e.preventDefault()
+}
+
+function dropEvent(e) {
+    e.preventDefault()
+
+    const text = e.dataTransfer.getData('text/plain')
+    const el = document.createElement('li')
+    el.innerHTML = text
+    el.draggable = true
+    el.classList.add('items')
+    addDragAndDropEvents(el)
+    this.appendChild(el)
+    e.dataTransfer.clearData();
 }
 
 const columns = document.querySelectorAll('ul')
