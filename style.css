@@ -87,7 +87,6 @@ ul {
     #inputs {
         display: flex;
         gap: 5px;
-        width: 70%;
     }
 
     #lists {
