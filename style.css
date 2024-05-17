@@ -84,12 +84,10 @@ ul {
 }
 
 @media (max-width: 750px) {
-    #new-task {
-        width: 65%;
-    }
-
-    #btn-add {
-        width: 30%;
+    #inputs {
+        display: flex;
+        gap: 5px;
+        width: 70%;
     }
 
     #lists {
