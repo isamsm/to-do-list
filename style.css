@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    background-color: #94B0DA;
+    font-family: "Roboto", sans-serif;
+    color: #343F3E;
+}
+
+#main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#lists {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    padding-top: 1em;
+}
+
+#new-task {
+    border: 2px solid transparent;
+    border-radius: 0.5em;
+    width: 300px;
+    height: 30px;
+}
+
+#btn-add {
+    font-size: 15px;
+    font-weight: bold;
+    color: #343F3E;
+    padding: 5px;
+    background-color: transparent;
+    border: 2px solid #DCEDFF;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.card {
+    width: 200px;
+    border: 2px solid #DCEDFF;
+    border-radius: 1em;
+    padding: 1em;
+}
+
+.card h2 {
+    text-align: center;
+}
+
+.card hr {
+    border-color: #343F3E;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0;
+    list-style-type: none;
+}
+
+li {
+    background-color: #DCEDFF;
+    color: #343F3E;
+    border: 1px solid transparent;
+    border-radius: 1em;
+    list-style-type: none;
+    padding: 10px;
+}
+
+.invisible {
+    display: none;
+}
+
+@media (max-width: 750px) {
+    #new-task {
+        width: 65%;
+    }
+
+    #btn-add {
+        width: 30%;
+    }
+
+    #lists {
+        flex-direction: column;
+    }
+}

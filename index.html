@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> To Do List </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main">
+        <h1> To-do List </h1>
+        <div>
+            <input id="new-task" type="text" placeholder="Digite uma tarefa">
+            <input id="btn-add" type="submit" onclick="addTask()">
+        </div>
+        <div id="lists">
+            <div class="card">
+                <h2 class="card-title"> Fazer </h2>
+                <hr>
+                <div id="initial-card">
+                    <ul id="initial-col">
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title"> Fazendo </h2>
+                <hr>
+                <div>
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <h2 class="card-title"> Feito </h2>
+                <hr>
+                <div>
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+</html>
