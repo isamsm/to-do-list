@@ -1,4 +1,6 @@
-var initialCol = document.querySelector('#initial-col')
+var toDo = document.getElementById('to-do-list')
+var doing = document.getElementById('doing-list')
+var done = document.getElementById('done-list')
 
 function addTask() {
     const input = document.getElementById('new-task')
@@ -7,8 +9,9 @@ function addTask() {
         const li = document.createElement('li')
         li.innerHTML = input.value
         li.draggable = true
+        li.id = `task-${Date.now()}`
         li.classList.add('items')
-        initialCol.appendChild(li)
+        toDo.appendChild(li)
         addDragAndDropEvents(li)
         input.value = ''
     } else {
@@ -18,7 +21,7 @@ function addTask() {
 }
 
 function dragStart(e) {
-    e.dataTransfer.setData('text/plain', e.target.innerHTML)
+    e.dataTransfer.setData('text/plain', e.target.id)
 
     setTimeout(() => {
         e.target.classList.add('invisible')
@@ -41,19 +44,15 @@ function dragOver(e) {
 function dropEvent(e) {
     e.preventDefault()
 
-    const text = e.dataTransfer.getData('text/plain')
-    const el = document.createElement('li')
-    el.innerHTML = text
-    el.draggable = true
-    el.classList.add('items')
-    addDragAndDropEvents(el)
-    this.appendChild(el)
-    e.dataTransfer.clearData();
+    const id = e.dataTransfer.getData('text/plain')
+    const el = document.getElementById(id)
+    const dropZone = e.target.closest('ul')
+    dropZone.appendChild(el)
+    e.dataTransfer.clearData()
 }
 
-const columns = document.querySelectorAll('ul')
-columns.forEach(column => {
-    column.addEventListener('dragover', dragOver)
-    column.addEventListener('drop', dropEvent)
+[toDo, doing, done].forEach(list => {
+    list.addEventListener('dragover', dragOver)
+    list.addEventListener('drop', dropEvent)
 })
 
