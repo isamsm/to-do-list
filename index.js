@@ -4,8 +4,12 @@ function dragStart(e) {
     e.dataTransfer.setData('text/plain', e.target.innerHTML)
 
     setTimeout(() => {
-        this.classList.add('invisible')
+        e.target.classList.add('invisible')
     }, 0)
+}
+
+function dragEnd(e) {
+    e.target.classList.remove('invisible')
 }
 
 function dragOver(e) {
@@ -15,57 +19,41 @@ function dragOver(e) {
 function dropEvent(e) {
     e.preventDefault()
 
-    console.log('dropped')
-
+    const text = e.dataTransfer.getData('text/plain')
     const el = document.createElement('li')
-    el.innerHTML = e.dataTransfer.getData('text')
+    el.innerHTML = text
     el.draggable = true
+    el.classList.add('items')
+    addDragAndDropEvents(el)
     this.appendChild(el)
+    e.dataTransfer.clearData();
 }
 
-const tasksNull = () => {
-    const card = document.querySelector('#initial-card')
-    const p = card.querySelector('p')
-
-    if (!initialCol.children.length) {
-        if(!p) {
-            const p = document.createElement('p')
-            p.innerHTML = 'Não há nenhuma tarefa no momento!'
-            card.append(p)
-        }
-    } else {
-        if (p) {
-            card.removeChild(p)
-        }
-
-        const items = document.querySelectorAll('li')
-        const columns = document.querySelectorAll('ul')
-
-        items.forEach(i => {
-            i.addEventListener('dragstart', dragStart)
-        })
-
-        columns.forEach(c => {
-            c.addEventListener('dragover', dragOver)
-            c.addEventListener('drop', dropEvent)
-        })
-    }
-}
-
-const addTask = () => {
+function addTask() {
     const input = document.getElementById('new-task')
 
-    if(input.value) {
+    if (input.value) {
         const li = document.createElement('li')
         li.innerHTML = input.value
         li.draggable = true
-        initialCol.append(li)
+        li.classList.add('items')
+        initialCol.appendChild(li)
+        addDragAndDropEvents(li)
+        input.value = ''
     } else {
         alert('Adicione uma tarefa válida!')
         return
     }
-
-    tasksNull()
 }
 
-tasksNull()
+function addDragAndDropEvents(element) {
+    element.addEventListener('dragstart', dragStart)     
+    element.addEventListener('dragend', dragEnd)  
+}
+
+const columns = document.querySelectorAll('ul')
+columns.forEach(column => {
+    column.addEventListener('dragover', dragOver)
+    column.addEventListener('drop', dropEvent)
+})
+
