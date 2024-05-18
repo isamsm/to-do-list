@@ -1,10 +1,9 @@
 var toDo = document.getElementById('to-do-list')
 var doing = document.getElementById('doing-list')
 var done = document.getElementById('done-list')
+var input = document.getElementById('new-task')
 
 function addTask() {
-    const input = document.getElementById('new-task')
-
     if (input.value) {
         const li = document.createElement('li')
         li.innerHTML = input.value
@@ -56,3 +55,9 @@ function dropEvent(e) {
     list.addEventListener('drop', dropEvent)
 })
 
+
+input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        addTask()
+    }
+})
