@@ -36,14 +36,15 @@ body {
     border-radius: 0.5em;
     width: 90%;
     height: 2.1em;
+    font-size: 0.8em;
 }
 
 #btn-add {
     width: 10%;
-    font-size: 0.9em;
+    height: 2.1em;
+    font-size: 1em;
     font-weight: bold;
     color: #343F3E;
-    padding: 0.5em;
     background-color: transparent;
     border: 2px solid #DCEDFF;
     border-radius: 0.5em;
