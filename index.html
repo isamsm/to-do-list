@@ -9,37 +9,39 @@
 </head>
 <body>
     <div id="main">
-        <h1> To-do List </h1>
-        <div id="inputs">
-            <input id="new-task" type="text" placeholder="Digite uma tarefa">
-            <input id="btn-add" type="submit" onclick="addTask()">
-        </div>
-        <div id="lists">
-            <div class="card">
-                <h2 class="card-title"> Fazer </h2>
-                <hr>
-                <div id="initial-card">
-                    <ul id="to-do-list">
-                        <li class="first-li"> Arraste aqui! </li>
-                    </ul>
-                </div>
+        <div>
+            <h1 id="title"> To-do List </h1>
+            <div id="inputs">
+                <input id="new-task" type="text" placeholder="Digite uma tarefa">
+                <input id="btn-add" type="submit" onclick="addTask()">
             </div>
-            <div class="card">
-                <h2 class="card-title"> Fazendo </h2>
-                <hr>
-                <div>
-                    <ul id="doing-list">
-                        <li class="first-li"> Arraste aqui! </li>
-                    </ul>
+            <div id="lists">
+                <div class="card">
+                    <h2 class="card-title"> Fazer </h2>
+                    <hr>
+                    <div id="initial-card">
+                        <ul id="to-do-list">
+                            <li class="first-li"> Arraste aqui! </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <h2 class="card-title"> Feito </h2>
-                <hr>
-                <div>
-                    <ul id="done-list">
-                        <li class="first-li"> Arraste aqui! </li>
-                    </ul>
+                <div class="card">
+                    <h2 class="card-title"> Fazendo </h2>
+                    <hr>
+                    <div>
+                        <ul id="doing-list">
+                            <li class="first-li"> Arraste aqui! </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <h2 class="card-title"> Feito </h2>
+                    <hr>
+                    <div>
+                        <ul id="done-list">
+                            <li class="first-li"> Arraste aqui! </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
